@@ -1,0 +1,101 @@
+/* Import a more elegant, serif font */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0c0a1a; /* Deep purple night sky */
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Cormorant Garamond', serif; /* New font */
+    overflow: hidden;
+    cursor: grab;
+}
+
+body:active {
+    cursor: grabbing;
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: -1;
+}
+
+/* LOADER */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0c0a1a;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1.5s ease-out;
+}
+#loader p {
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeIn 3s infinite alternate;
+}
+#loader.fade-out {
+    opacity: 0;
+}
+@keyframes fadeIn {
+    to { opacity: 0.8; }
+}
+
+/* Main Content Overlay */
+#main-content {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 4%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 2s ease 1s;
+}
+
+#main-content.visible {
+    opacity: 1;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255, 180, 255, 0.5);
+}
+
+/* Info Box */
+#info-box {
+    align-self: flex-end; /* Moves to bottom right */
+    max-width: 300px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    pointer-events: auto;
+    text-align: right;
+}
+#info-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+#info-box p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
