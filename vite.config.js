@@ -1,6 +1,7 @@
 // vite.config.js
 import { defineConfig } from 'vite'
 
+// CORRECT for a username.github.io repo
 export default defineConfig({
-  base: '/treebarkbr.github.io/', // <-- IMPORTANT: Change this!
+  base: '/',
 })
