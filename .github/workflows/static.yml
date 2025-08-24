@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main'] # Or 'master', whatever your default branch is
+    branches: ['main'] # Or 'master'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,28 +22,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
-  build:
+  # Build and deploy job
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # <-- Updated
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # <-- Updated
         with:
           node-version: 18
           cache: 'npm'
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build # This runs 'vite build' and creates the 'dist' folder
+        run: npm run build # This runs 'vite build'
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4 # <-- Updated
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3 # <-- Updated
         with:
-          # Upload entire directory
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4 # <-- Updated
