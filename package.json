@@ -1,10 +1,19 @@
 {
+  "name": "treebarkbr.github.io",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "cannon-es": "^0.20.0",
-    "gsap": "^3.13.0",
-    "three": "^0.179.1"
+    "gsap": "^3.12.5",
+    "three": "^0.161.0"
   },
   "devDependencies": {
-    "vite": "^7.1.3"
+    "vite": "^5.1.4"
   }
 }
